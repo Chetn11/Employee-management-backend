@@ -55,7 +55,7 @@ app.post("/login",async (req,res)=>{
             {
                 return res.json({message:"Invalid credentials"});
             }
-            const token=jwt.sign({userId:user._id},process.env.key);
+            const token=jwt.sign({userId:user._id},"key");
             res.json({message:"login successfull", token:token});
         })
     } catch (error) {
@@ -67,7 +67,7 @@ app.post("/login",async (req,res)=>{
 app.use(auth);
 app.use("/employees",employeeRouter);
 var port=process.env.port;
-app.listen(port, async()=>{
+app.listen(8080, async()=>{
     try {
         await connection;
         console.log("Connected to the MongoDB");
@@ -75,5 +75,5 @@ app.listen(port, async()=>{
         console.log("Error while connecting to DB");
         console.log(error);
     }
-    console.log(`Listening on port ${port}..`)
+    console.log(`Listening on port 8080..`)
 })

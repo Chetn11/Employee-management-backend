@@ -9,7 +9,7 @@ const auth=(req,res,next)=>{
         return res.json({message:"login first"});
     }
 
-    jwt.verify(token,process.env.key, function(err,decoded){
+    jwt.verify(token,"key", function(err,decoded){
         if(err){
             return res.json({message:"Please login first"});
         }
