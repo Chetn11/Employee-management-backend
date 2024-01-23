@@ -1,15 +1,17 @@
 const mongoose=require("mongoose");
 
 const employeeSchema=mongoose.Schema({
-    first_name:{type:String,required:true},
-    last_name:{type:String,required:true},
-    email:{type:String,required:true,unique:true},
-    department:{type:String,enum:["Tech","Marketing","Operation"]},
-    salary:{type:Number,required:true},
-    date:{type:String, require:true}
+    name:{type:String,required:true},
+    image:{type:String,required:true},
+    specialization:{type:String,enum:['Cardiologist','Dermatologist','Pediatrician','Psychiatrist']},
+    experience:{type:String,required:true},
+    location:{type:String,required:true},
+    date:{type:String,required:true},
+    slots:{type:String,required:true},
+    fee:{type:String,required:true},
 });
 
 
-const EmployeeModel=mongoose.model("employee",employeeSchema);
+const EmployeeModel=mongoose.model("doctor",employeeSchema);
 
 module.exports={EmployeeModel};

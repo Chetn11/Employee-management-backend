@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/",(req,res)=>{
-    res.json({message:"Employee Management Api is Working!"});
+    res.json({message:"Masai Hospital Api is Working"});
 })
 
 // For signup
@@ -37,9 +37,7 @@ app.post("/signup",async (req,res)=>{
 
     })
     }
-    else{
-        return res.json({message:"Password does not Match, please try again"})
-    }
+    
 }
 })
 
